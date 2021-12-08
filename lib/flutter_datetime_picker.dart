@@ -468,11 +468,36 @@ class _DatePickerState extends State<_DatePickerComponent> {
 
   // Title View
   Widget _renderTitleActionsView(DatePickerTheme theme) {
-
+    final done = _localeDone();
     return Container(
       height: theme.titleHeight,
       decoration: BoxDecoration(
         color: theme.headerColor ?? theme.backgroundColor,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 1,
+          ),
+          Container(
+            height: theme.titleHeight,
+            child: CupertinoButton(
+              pressedOpacity: 0.3,
+              padding: EdgeInsetsDirectional.only(end: 16, top: 0),
+              child: Text(
+                '$done',
+                style: theme.doneStyle,
+              ),
+              onPressed: () {
+                Navigator.pop(context, widget.pickerModel.finalTime());
+                if (widget.route.onConfirm != null) {
+                  widget.route.onConfirm!(widget.pickerModel.finalTime()!);
+                }
+              },
+            ),
+          )
+        ],
       ),
     );
   }
