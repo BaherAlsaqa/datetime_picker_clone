@@ -103,6 +103,8 @@ class DatePicker {
     DateChangedCallback? onChanged,
     DateChangedCallback? onConfirm,
     DateCancelledCallback? onCancel,
+    double? marginRight,
+    double? marginLeft,
     locale: LocaleType.en,
     DateTime? currentTime,
     DatePickerTheme? theme,
@@ -114,6 +116,8 @@ class DatePicker {
         onChanged: onChanged,
         onConfirm: onConfirm,
         onCancel: onCancel,
+        marginRight: marginRight,
+        marginLeft: marginLeft,
         locale: locale,
         theme: theme,
         barrierLabel:
