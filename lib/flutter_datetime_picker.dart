@@ -300,7 +300,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
           final double bottomPadding = MediaQuery.of(context).padding.bottom;
           return ClipRect(
             child: Padding(
-              padding: const EdgeInsets.only(left: 25, right: 25),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: CustomSingleChildLayout(
                 delegate: _BottomPickerLayout(
                   widget.route.animation!.value,
