@@ -62,6 +62,8 @@ class DatePicker {
   static Future<DateTime?> showTimePicker(
     BuildContext context, {
     bool showTitleActions: true,
+    double marginLeft: 0.0,
+    double marginRight: 0.0,
     bool showSecondsColumn: true,
     DateChangedCallback? onChanged,
     DateChangedCallback? onConfirm,
@@ -74,6 +76,8 @@ class DatePicker {
       context,
       _DatePickerRoute(
         showTitleActions: showTitleActions,
+        marginRight: marginRight,
+        marginLeft: marginLeft,
         onChanged: onChanged,
         onConfirm: onConfirm,
         onCancel: onCancel,
