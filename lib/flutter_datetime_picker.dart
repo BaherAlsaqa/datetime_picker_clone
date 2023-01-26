@@ -22,6 +22,8 @@ class DatePicker {
   static Future<DateTime?> showDatePicker(
     BuildContext context, {
     bool showTitleActions: true,
+    double marginLeft: 0.0,
+    double marginRight: 0.0,
     DateTime? minTime,
     DateTime? maxTime,
     DateChangedCallback? onChanged,
@@ -35,6 +37,8 @@ class DatePicker {
       context,
       _DatePickerRoute(
         showTitleActions: showTitleActions,
+        marginLeft: marginLeft,
+        marginRight: marginRight,
         onChanged: onChanged,
         onConfirm: onConfirm,
         onCancel: onCancel,
@@ -187,6 +191,8 @@ class DatePicker {
 class _DatePickerRoute<T> extends PopupRoute<T> {
   _DatePickerRoute({
     this.showTitleActions,
+    this.marginRight,
+    this.marginLeft,
     this.onChanged,
     this.onConfirm,
     this.onCancel,
@@ -200,6 +206,8 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
         super(settings: settings);
 
   final bool? showTitleActions;
+  final double? marginRight;
+  final double? marginLeft;
   final DateChangedCallback? onChanged;
   final DateChangedCallback? onConfirm;
   final DateCancelledCallback? onCancel;
@@ -300,7 +308,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
           final double bottomPadding = MediaQuery.of(context).padding.bottom;
           return ClipRect(
             child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(left: widget.route.marginLeft!, right: widget.route.marginRight!),
               child: CustomSingleChildLayout(
                 delegate: _BottomPickerLayout(
                   widget.route.animation!.value,
