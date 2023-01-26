@@ -299,17 +299,20 @@ class _DatePickerState extends State<_DatePickerComponent> {
         builder: (BuildContext context, Widget? child) {
           final double bottomPadding = MediaQuery.of(context).padding.bottom;
           return ClipRect(
-            child: CustomSingleChildLayout(
-              delegate: _BottomPickerLayout(
-                widget.route.animation!.value,
-                theme,
-                showTitleActions: widget.route.showTitleActions!,
-                bottomPadding: bottomPadding,
-              ),
-              child: GestureDetector(
-                child: Material(
-                  color: theme.backgroundColor,
-                  child: _renderPickerView(theme),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25),
+              child: CustomSingleChildLayout(
+                delegate: _BottomPickerLayout(
+                  widget.route.animation!.value,
+                  theme,
+                  showTitleActions: widget.route.showTitleActions!,
+                  bottomPadding: bottomPadding,
+                ),
+                child: GestureDetector(
+                  child: Material(
+                    color: theme.backgroundColor,
+                    child: _renderPickerView(theme),
+                  ),
                 ),
               ),
             ),
